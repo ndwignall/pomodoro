@@ -9,35 +9,64 @@ body {
 }
 
 .container {
-    text-align: center;
-    background-color: var(--container-bg);
+    background: linear-gradient(145deg, #e6e6e6, #ffffff);
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 0 10px var(--shadow-color);
-    color: var(--text-color);
+    position: relative;
+    box-shadow: 
+        20px 20px 60px #bebebe,
+        -20px -20px 60px #ffffff,
+        inset 0 0 50px rgba(0, 0, 0, 0.1);
+    border: 12px solid #d1d1d1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container::before {
+    content: '';
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    border-radius: 50%;
+    background: repeating-conic-gradient(
+        from 0deg,
+        transparent 0deg 2deg,
+        #d1d1d1 2deg 4deg
+    );
+    z-index: -1;
 }
 
 .timer {
-    font-size: 4rem;
-    font-weight: bold;
-    margin: 2rem 0;
-    color: var(--text-color);
+    font-family: 'Digital-7', monospace;
+    font-size: 3.5rem;
+    background: #2d2d2d;
+    padding: 0.5rem 1rem;
+    border-radius: 10px;
+    color: #ff0000;
+    margin: 1rem 0;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .controls button {
-    font-size: 1.1rem;
-    margin: 0 0.5rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
+    background: linear-gradient(145deg, #f0f0f0, #d5d5d5);
     border: none;
-    border-radius: 5px;
-    transition: background-color 0.3s;
+    padding: 0.8rem 1.2rem;
+    margin: 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    box-shadow: 
+        5px 5px 10px #bebebe,
+        -5px -5px 10px #ffffff;
+    transition: all 0.2s ease;
 }
 
-.controls button:hover {
-    background-color: #45a049;
+.controls button:active {
+    box-shadow: inset 5px 5px 10px #bebebe,
+                inset -5px -5px 10px #ffffff;
 }
 
 #status-text {
@@ -63,11 +92,11 @@ body {
 
 /* Theme Switch Styles */
 .theme-switch {
-    margin-top: 20px;
+    position: absolute;
+    bottom: 1rem;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 10px;
+    gap: 0.5rem;
 }
 
 .switch {
@@ -123,8 +152,8 @@ input:checked + .slider:before {
 
 /* Light Theme Colors */
 :root {
-    --bg-color: #f0f0f0;
-    --container-bg: #ffffff;
+    --bg-color: #4CAF50;
+    --container-bg: #ff0000;
     --text-color: #333333;
     --shadow-color: rgba(0, 0, 0, 0.1);
     --tomato-filter: none;
@@ -144,8 +173,16 @@ input:checked + .slider:before {
 }
 
 .tomato-icon {
-    width: 50px;
-    height: 50px;
-    margin-bottom: 1rem;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 0.5rem;
     filter: var(--tomato-filter);
+    position: relative;
+    z-index: 2;
+}
+
+.status {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
 } 
